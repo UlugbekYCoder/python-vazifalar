@@ -1,4 +1,4 @@
-# # decimal
+# decimal
 # from decimal import Decimal
 #
 # a = Decimal("0.1")
