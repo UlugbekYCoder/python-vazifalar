@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-indigo-600 text-white shadow-lg">
+        <div class="max-w-7xl mx-auto flex justify-between items-center p-5">
+
+            <h1 class="text-3xl font-bold">
+                🛒 Mini Store
+            </h1>
+
+            <div class="space-x-5">
+
+                <a href="/" class="hover:text-yellow-300">
+                    Home
+                </a>
+
+                <a href="/cart" class="hover:text-yellow-300">
+                    Cart
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- Title -->
+
+    <div class="text-center mt-12">
+
+        <h2 class="text-5xl font-bold text-gray-800">
+            Products
+        </h2>
+
+        <p class="text-gray-500 mt-3">
+            Choose your favorite product.
+        </p>
+
+    </div>
+
+    <!-- Product Cards -->
+
+    <div class="max-w-7xl mx-auto mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        {% for product in products %}
+
+        <div class="bg-white rounded-2xl shadow-lg p-8 hover:shadow-2xl transition">
+
+            <h2 class="text-3xl font-bold">
+                {{ product.name }}
+            </h2>
+
+            <p class="mt-4 text-gray-500">
+                Type:
+                <span class="font-semibold">
+                    {{ product.product_type }}
+                </span>
+            </p>
+
+            <p class="text-gray-500">
+                Produced:
+                <span class="font-semibold">
+                    {{ product.produced_year }}
+                </span>
+            </p>
+
+            <div class="mt-8 flex justify-between">
+
+                <a href="/buy/{{ product.name }}"
+                   class="bg-green-600 hover:bg-green-700 text-white px-5 py-3 rounded-xl">
+
+                    Buy
+
+                </a>
+
+                <a href="/info/{{ product.name }}"
+                   class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-xl">
+
+                    Details
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</body>
+
+</html>

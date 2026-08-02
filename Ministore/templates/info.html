@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Information</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-100">
+
+<div class="max-w-xl mx-auto mt-20 bg-white p-10 rounded-2xl shadow-xl">
+
+<h1 class="text-4xl font-bold mb-8">
+
+{{ product.name }}
+
+</h1>
+
+<p class="text-xl mb-4">
+
+Type:
+<b>{{ product.product_type }}</b>
+
+</p>
+
+<p class="text-xl mb-8">
+
+Produced Year:
+<b>{{ product.produced_year }}</b>
+
+</p>
+
+<a href="/buy/{{ product.name }}"
+class="bg-green-600 text-white px-6 py-3 rounded-xl">
+
+Buy Product
+
+</a>
+
+</div>
+
+</body>
+
+</html>
