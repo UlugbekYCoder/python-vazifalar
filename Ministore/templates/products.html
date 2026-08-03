@@ -3,53 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ product.name }}</title>
+    <title>Products</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body class="bg-gray-100">
 
-<div class="max-w-xl mx-auto mt-20">
+<div class="max-w-4xl mx-auto mt-16">
 
-    <div class="bg-white shadow rounded-lg p-8">
+    <h1 class="text-3xl font-bold mb-8">
+        Products
+    </h1>
 
-        <h1 class="text-3xl font-bold">
+    {% for product in products %}
+
+    <div class="bg-white rounded shadow p-6 mb-4">
+
+        <h2 class="text-2xl font-semibold">
             {{ product.name }}
-        </h1>
+        </h2>
 
-        <hr class="my-6">
+        <p class="mt-2">
+            Price: {{ product.price }} so'm
+        </p>
 
         <p>
-            <strong>Price:</strong>
-            {{ product.price }} so'm
+            Type: {{ product.product_type }}
         </p>
 
-        <p class="mt-2">
-            <strong>Type:</strong>
-            {{ product.product_type }}
+        <p>
+            Produced: {{ product.year }}
         </p>
 
-        <p class="mt-2">
-            <strong>Produced:</strong>
-            {{ product.year }}
-        </p>
+        <div class="mt-4 flex gap-3">
 
-        <div class="mt-8 flex gap-3">
-
-            <a href="/add/{{ product.name }}"
-               class="bg-blue-600 text-white px-5 py-2 rounded hover:bg-blue-700">
-                Add to Cart
+            <a href="/product/{{ product.name }}"
+               class="bg-gray-800 text-white px-4 py-2 rounded">
+                Details
             </a>
 
-            <a href="/products"
-               class="border px-5 py-2 rounded hover:bg-gray-100">
-                Back
+            <a href="/add/{{ product.name }}"
+               class="bg-blue-600 text-white px-4 py-2 rounded">
+                Add to Cart
             </a>
 
         </div>
 
     </div>
+
+    {% endfor %}
 
 </div>
 
